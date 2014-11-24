@@ -37,6 +37,13 @@
                 }
             });
       };
+      
+      $scope.onDropComplete = function (index, obj, evt) {
+          var otherObj = $rootScope.layout[index];
+          var otherIndex = $rootScope.layout.indexOf(obj);
+          $rootScope.layout[index] = obj;
+          $rootScope.layout[otherIndex] = otherObj;
+      }
 
 
   } ]);
