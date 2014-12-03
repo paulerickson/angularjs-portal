@@ -43,23 +43,23 @@
                 }
             });
       };
-      
+
       $scope.sortableOptions = {
     		  'ui-floating': 'auto',
     		  stop: function(e, ui) {
     		      if(ui.item.sortable.dropindex != ui.item.sortable.index) {
-    		          
+
         		      var node = $scope.layout[ui.item.sortable.dropindex];
         		      console.log("Change happened, logging move of " + node.fname + " from " + ui.item.sortable.index + " to " + ui.item.sortable.dropindex);
         		      //index, length, movingNodeId, previousNodeId, nextNodeId
         		      var prevNodeId = ui.item.sortable.dropindex != 0 ? $scope.layout[ui.item.sortable.dropindex - 1].nodeId : null;
         		      var nextNodeId = ui.item.sortable.dropindex != $scope.layout.length - 1 ? $scope.layout[ui.item.sortable.dropindex + 1].nodeId : null;
         		      mainService.moveStuff(ui.item.sortable.dropindex, $scope.layout.length, node.nodeId, prevNodeId, nextNodeId);
-        		      
+
     		      }
     		  }
       };
-      
+
       this.toggleDiv = function toggleDiv(nodeId) {
           //Toggle Make full row
           $('#portlet-id-' + nodeId).parent().parent('.portlet-container').toggleClass('col-sm-6');
@@ -74,7 +74,7 @@
           } else {
               $('#portlet-id-' + nodeId).css('height','150px');
     	  }
-    	  
+
     	  //Toggle content visible
     	  $('#content-' + nodeId).toggleClass('hidden');
       };
