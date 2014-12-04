@@ -1,4 +1,4 @@
-<div class="portlet-div" id="portlet-id-{{::portlet.nodeId}}">
+<!--<div class="portlet-div" id="portlet-id-{{::portlet.nodeId}}">
 
   <a href="{{::portlet.url}}" target="{{::portlet.target}}" >
     <div class="portlet-title">
@@ -13,4 +13,22 @@
       {{:: portlet.description | truncate:160}}
     </div>
   </a>
+</div>-->
+
+
+<div class="btn btn-quicklink" id="portlet-id-{{::portlet.nodeId}}" ng-mouseenter="portletHover = true" ng-mouseleave="portletHover = false">
+  <a href="{{::portlet.url}}" target="{{::portlet.target}}">
+    <div class="title-box">
+      <i class="fa {{::portlet.faIcon}}" ng-if="portlet.faIcon !== '' && portlet.faIcon !== null"></i>{{ ::portlet.title }}
+    </div>
+  </a>
+  <div class="icon-box">
+    <div class="hidden-icons" ng-if="portletHover === true">
+      <i class="fa fa-info-circle" popover="{{portlet.description}}" popover-trigger="mouseenter" popover-placement="top" popover-popup-delay="200" popover-append-top-body="true"></i>
+      <i class="fa fa-remove" ng-click="mainCtrl.removePortlet(portlet.nodeId, portlet.title)"></i>
+    </div>
+    <div class="arrow-icon">
+      <i class="fa fa-chevron-right"></i>
+    </div>
+  </div>
 </div>
